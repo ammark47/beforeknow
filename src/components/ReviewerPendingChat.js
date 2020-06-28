@@ -1,9 +1,13 @@
-import { Button, Grid, makeStyles } from '@material-ui/core'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
-import DialogTitle from '@material-ui/core/DialogTitle'
+import {
+    Button,
+    Grid,
+    makeStyles,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+} from '@material-ui/core';
 import RefreshSharpIcon from '@material-ui/icons/RefreshSharp'
 import ThumbDownSharpIcon from '@material-ui/icons/ThumbDownSharp'
 import ThumbUpSharpIcon from '@material-ui/icons/ThumbUpSharp'

@@ -4,13 +4,11 @@ import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
-// @material-ui/core components
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import Button from "@material-ui/core/Button";
-
 // core components
-
 import buttonStyle from "assets/jss/material-kit-react/components/buttonStyle.js";
+import { Button } from '@material-ui/core';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 const makeComponentStyles = makeStyles(() => ({
   ...buttonStyle
