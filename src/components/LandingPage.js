@@ -42,7 +42,7 @@ export const LandingPage = () => {
                             <GridItem xs={12} sm={12} md={6}>
                                 <h1 className={classes.title}><span style={{ fontStyle: 'italic' }}>Know</span> the product</h1>
                                 <h4>
-                                    TrueView facilitates real-time chats with people who brought the product.
+                                    BeforeKnow facilitates real-time chats with people who brought the product.
                                     Ask reviewers the questions you need answered about that product you just 
                                     might buy. 
                                 </h4>

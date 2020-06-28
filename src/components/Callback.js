@@ -9,8 +9,8 @@ export const Callback = () => {
   const userLoggedIn = useSelector(state => state.authReducer.loggedIn)
   const dispatch = useDispatch()
 
-  if (userLoggedIn) return <Redirect to="/" />;
-  dispatch(handleAuthenticationCallback());
+  if (userLoggedIn) return <Redirect to="/" />
+  dispatch(handleAuthenticationCallback())
 
   return <div className="text-center">Loading user profile.</div>;
 }

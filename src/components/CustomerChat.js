@@ -40,7 +40,7 @@ export const CustomerChat = () => {
     const classes = useStyles()
     const [channel, setChannel] = useState({})
     const [loading, setLoading] = useState(false)
-    const [chatClient, setChatClient] = useState(new StreamChat("d2msy7mn26aa"))
+    const [chatClient, setChatClient] = useState(new StreamChat(process.env.REACT_APP_STREAM_CHAT_KEY))
     const [channelId, setChannelId] = useState("")
     const user = useSelector(state => state.authReducer.postgres_user)
     const { customerId, reviewId } = useParams()

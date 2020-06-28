@@ -133,7 +133,7 @@ const ReviewerPendingChatTable = () => {
                 tableRef={tableRef}
                 data={query => 
                     new Promise((resolve, reject) => {
-                        fetch(`/db/chat/${user.id}`)
+                        fetch(`/api/chat/${user.id}`)
                         .then(response => response.json())
                         .then(result =>{
                             resolve({

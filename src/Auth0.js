@@ -2,10 +2,10 @@ import auth0 from 'auth0-js';
 
 const auth0Client = new auth0.WebAuth({
   // the following three lines MUST be updated
-  domain: 'nexttest.auth0.com',
-  audience: 'https://nexttest.auth0.com/userinfo',
-  clientID: 'TCooomK1xTn5yK0r5qrpbjiVM6o3ouGy',
-  redirectUri: 'http://localhost:3000/callback',
+  domain: process.env.REACT_APP_AUTH0_DOMAIN,
+  audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+  clientID: process.env.REACT_APP_AUTH0_CLIENTID,
+  redirectUri: process.env.REACT_APP_AUTH0_REDIRECTURI,
   responseType: 'id_token',
   scope: 'openid profile email'
 });
@@ -41,7 +41,7 @@ export function signUp() {
 
 export function signOut() {
   auth0Client.logout({
-    returnTo: 'http://localhost:3000',
-    clientID: 'TCooomK1xTn5yK0r5qrpbjiVM6o3ouGy'
+    returnTo: process.env.REACT_APP_AUTH0_RETURNTO,
+    clientID: process.env.REACT_APP_AUTH0_CLIENTID
   })
 }

@@ -1,6 +1,6 @@
 export const searchAllWalmartProducts = async ( searchKey, abortSignal ) => {
     try {
-        const response = await fetch(`/db/walmart/products/${searchKey}`, { signal: abortSignal } )
+        const response = await fetch(`/api/walmart/products/${searchKey}`, { signal: abortSignal } )
         const listOfProductsJson = await response.json()
         console.log(listOfProductsJson)
         return listOfProductsJson["items"]
@@ -11,7 +11,7 @@ export const searchAllWalmartProducts = async ( searchKey, abortSignal ) => {
 
 export const searchReviewedProducts = async ( searchKey ) => {
     try {
-        const response = await fetch('/db/products?search=' + searchKey)
+        const response = await fetch('/api/products?search=' + searchKey)
         const listOfProductsJson = await response.json()
 
         return listOfProductsJson

@@ -23,8 +23,8 @@ export const CustomerProductReviewerList = () => {
     const classes = useStyles()
     const { productId } = useParams()
     
-    const { loading: productLoading, error: productError, data: productData } = useFetch(`/db/products/${productId}`, [])
-    const { loading: reviewerLoading, error: reviewerError, data: reviewerData } = useFetch(`/db/reviews/${productId}`, [])
+    const { loading: productLoading, error: productError, data: productData } = useFetch(`/api/products/${productId}`, [])
+    const { loading: reviewerLoading, error: reviewerError, data: reviewerData } = useFetch(`/api/reviews/${productId}`, [])
 
 
     return (

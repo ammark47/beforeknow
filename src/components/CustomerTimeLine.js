@@ -8,7 +8,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople'
 import HourglassFullIcon from '@material-ui/icons/HourglassFull';
 import QuestionAnswerSharpIcon from '@material-ui/icons/QuestionAnswerSharp'
 import DoneSharpIcon from '@material-ui/icons/DoneSharp';
-import '../images/style.min.css'
+import '../css/style.min.css'
 
 const styles = {
     timeline: {
