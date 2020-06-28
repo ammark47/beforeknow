@@ -1,10 +1,9 @@
-import React from 'react'
 import { Grid, makeStyles, Typography } from '@material-ui/core'
 import Image from 'material-ui-image'
-import useFetch from 'use-http'
-import ReactLoading from 'react-loading'
-import { ProductReviewerList } from './ProductReviewerList'
+import React from 'react'
 import { useParams } from 'react-router-dom'
+import useFetch from 'use-http'
+import { ProductReviewerList } from './ProductReviewerList'
 
 const useStyles = makeStyles(() => ({
     root: {

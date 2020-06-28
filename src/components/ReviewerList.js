@@ -1,8 +1,8 @@
 import React from "react"
-import { ReviewerListItem } from './ReviewerListItem1'
 import { useParams } from "react-router-dom"
-import useFetch from 'use-http'
 import { LoadingIndicator } from "stream-chat-react"
+import useFetch from 'use-http'
+import { ReviewerListItem } from './ReviewerListItem1'
 
 export const ReviewerList = ( ) => {
     const { productId } = useParams()

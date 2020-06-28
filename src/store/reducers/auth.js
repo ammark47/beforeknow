@@ -1,5 +1,5 @@
-import { USER_PROFILE_LOADED, POSTGRES_PROFILE_LOADED } from '../actions/auth';
-import { PURGE, REHYDRATE } from 'redux-persist';
+import { PURGE } from 'redux-persist';
+import { POSTGRES_PROFILE_LOADED, USER_PROFILE_LOADED } from '../actions/auth';
 
 const initialState = {
   user: {},

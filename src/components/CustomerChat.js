@@ -1,34 +1,21 @@
-import React, { useState, useEffect } from "react"
-import { Grid } from '@material-ui/core'
-import {
-    Chat,
-    Channel,
-    Thread,
-    Window,
-    ChannelList,
-    ChannelListTeam,
-    ChannelListMessenger,
-    MessageInputFlat,
-    ChannelHeader,
-    MessageList,
-    MessageSimple,
-    MessageTeam,
-    MessageInput,
-    ChatDown,
-    ChannelPreviewCompact,
-    ChannelPreviewMessenger,
-    ChannelPreview,
-} from "stream-chat-react";
-import { StreamChat } from "stream-chat"
-
-import "stream-chat-react/dist/css/index.css"
+import { Grid, makeStyles } from '@material-ui/core';
+import { logIn } from "Auth0";
+import "css/chat.css";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { makeStyles } from "@material-ui/core"
-import { logIn } from "Auth0"
-import "css/chat.css"
-
-
+import { StreamChat } from "stream-chat";
+import {
+    Channel,
+    ChannelHeader, ChannelList,
+    ChannelListMessenger,
+    ChannelPreviewMessenger, Chat,
+    MessageInput, MessageInputFlat,
+    MessageList,
+    MessageSimple, Thread,
+    Window
+} from "stream-chat-react";
+import "stream-chat-react/dist/css/index.css";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -61,7 +48,7 @@ export const CustomerChat = () => {
                 },
                 user.chat_token,
             )
-            
+
             setLoading(false)
         }
         if (!user) {
@@ -80,29 +67,29 @@ export const CustomerChat = () => {
 
     return (
         <Grid item container xs={12} className={classes.root} >
-        {loading && <div>Loading chat...</div>}
-        {!loading && 
-            (<Chat client={chatClient} theme="messaging light"  >
-                <ChannelList
-                    List={ChannelListMessenger}
-                    Preview={ChannelPreviewMessenger}
-                    filters={filters}
-                    sort={sort}
-                    setActiveChannel={setActiveChannel}
-                >
-                </ChannelList>
-                <Channel channel={channel}>
-                    <Window>
-                        <ChannelHeader />
-                        <MessageList/>
-                        <MessageInput  Input={MessageInputFlat} />
-                    </Window>
-                    <Thread Message={MessageSimple} />
-                </Channel>
-            </Chat>
-            )
-        }
-    </Grid>
+            {loading && <div>Loading chat...</div>}
+            {!loading &&
+                (<Chat client={chatClient} theme="messaging light"  >
+                    <ChannelList
+                        List={ChannelListMessenger}
+                        Preview={ChannelPreviewMessenger}
+                        filters={filters}
+                        sort={sort}
+                        setActiveChannel={setActiveChannel}
+                    >
+                    </ChannelList>
+                    <Channel channel={channel}>
+                        <Window>
+                            <ChannelHeader />
+                            <MessageList />
+                            <MessageInput Input={MessageInputFlat} />
+                        </Window>
+                        <Thread Message={MessageSimple} />
+                    </Channel>
+                </Chat>
+                )
+            }
+        </Grid>
     )
 
 }

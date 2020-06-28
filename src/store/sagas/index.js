@@ -1,13 +1,12 @@
-import { takeLatest } from 'redux-saga/effects';
-
-import { HANDLE_AUTHENTICATION_CALLBACK, USER_PROFILE_LOADED, POSTGRES_PROFILE_LOADED } from '../actions/auth';
-import { handleAuthentication } from '../../Auth0';
-
-import { SEARCH_PRODUCT_REQUEST, SEARCH_PRODUCT_SUCCESS, SEARCH_REVIEWED_PRODUCT_REQUEST, SEARCH_REVIEWED_PRODUCT_SUCCESS } from '../actions/products'
-
-import { all, call, put, takeEvery, spawn } from 'redux-saga/effects';
-import { searchAllWalmartProducts, searchReviewedProducts } from '../../models/product'
 import { checkAndInsertUser } from 'models/users';
+import { call, put, spawn, takeLatest } from 'redux-saga/effects';
+import { handleAuthentication } from '../../Auth0';
+import { searchAllWalmartProducts, searchReviewedProducts } from '../../models/product';
+import { HANDLE_AUTHENTICATION_CALLBACK, POSTGRES_PROFILE_LOADED, USER_PROFILE_LOADED } from '../actions/auth';
+import { SEARCH_PRODUCT_REQUEST, SEARCH_PRODUCT_SUCCESS, SEARCH_REVIEWED_PRODUCT_REQUEST, SEARCH_REVIEWED_PRODUCT_SUCCESS } from '../actions/products';
+
+
+
 
 //--------------------------- Callbacks ------------------------------------------------------ //
 

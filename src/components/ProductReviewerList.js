@@ -1,11 +1,11 @@
-import React, { useState, forwardRef } from 'react'
-import { List, ListItem, Grid, makeStyles, Typography, Paper, Button } from '@material-ui/core'
-import MaterialTable from 'material-table'
+import { Button, Grid, makeStyles } from '@material-ui/core'
+import MessageSharpIcon from '@material-ui/icons/MessageSharp'
 import Rating from '@material-ui/lab/Rating'
-import MessageSharpIcon  from '@material-ui/icons/MessageSharp'
+import MaterialTable from 'material-table'
 import { requestChat } from 'models/reviews'
-import { useSelector } from 'react-redux'
 import { useSnackbar } from 'notistack'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles(() => ({

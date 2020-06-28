@@ -1,12 +1,12 @@
-import React from 'react'
+import Grid from '@material-ui/core/Grid'
 import { makeStyles } from "@material-ui/core/styles"
+import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js"
 import GridContainer from 'custom_components/Grid/GridContainer'
 import GridItem from 'custom_components/Grid/GridItem'
+import React from 'react'
 import { CustomerTimeLine } from './CustomerTimeLine'
 import { ReviewerTimeLine } from './ReviewerTimeLine'
-import Grid from '@material-ui/core/Grid'
 
-import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js"
 
 const customStyles = {
     ...styles,

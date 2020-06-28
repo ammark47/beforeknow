@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
+import { USER_LOGOUT } from 'store/actions/auth'
 import { authReducer } from './auth'
 import { searchProductsReducer } from './searchProducts'
-import { USER_LOGOUT } from 'store/actions/auth'
-import { persistor } from '../configueStore'
 
 const appReducer = combineReducers({
     authReducer,

@@ -1,18 +1,18 @@
-import React, { createRef, useState } from 'react'
-import { Grid, makeStyles, Button } from '@material-ui/core'
-import MaterialTable from 'material-table'
-import { checkPendingChats, acceptChat, declineChat } from 'models/chat'
-import { useSelector } from 'react-redux'
-import { useSnackbar } from 'notistack'
+import { Button, Grid, makeStyles } from '@material-ui/core'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
 import RefreshSharpIcon from '@material-ui/icons/RefreshSharp'
-import ThumbUpSharpIcon from '@material-ui/icons/ThumbUpSharp'
 import ThumbDownSharpIcon from '@material-ui/icons/ThumbDownSharp'
+import ThumbUpSharpIcon from '@material-ui/icons/ThumbUpSharp'
+import MaterialTable from 'material-table'
+import { acceptChat, checkPendingChats, declineChat } from 'models/chat'
+import { useSnackbar } from 'notistack'
+import React, { createRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles(() => ({
     root: {

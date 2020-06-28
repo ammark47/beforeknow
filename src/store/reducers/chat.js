@@ -1,5 +1,5 @@
-import { SET_CHAT_USER_SUCCESS, SET_CHAT_USER_REQUEST, SET_CHAT_USER_FAILURE, SET_CHAT_CLIENT } from '../actions/chat';
 import { combineReducers } from 'redux';
+import { SET_CHAT_CLIENT, SET_CHAT_USER_FAILURE, SET_CHAT_USER_REQUEST, SET_CHAT_USER_SUCCESS } from '../actions/chat';
 
 const initialState = {
     isChatUserSet: false,

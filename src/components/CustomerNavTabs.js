@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
+import { makeStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
-import { CustomerSearchProducts } from './CustomerSearchProducts';
-import { CustomerChat } from './CustomerChat';
-import { Grid } from '@material-ui/core'
+import Tabs from '@material-ui/core/Tabs';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { CustomerChat } from './CustomerChat';
+import { CustomerSearchProducts } from './CustomerSearchProducts';
 
 
 const CustomerTabPanel = (props) => {

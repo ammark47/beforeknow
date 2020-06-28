@@ -1,13 +1,12 @@
-import React, { useState }  from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { Grid, makeStyles, TextField } from '@material-ui/core'
 import AwesomeDebouncePromise from 'awesome-debounce-promise'
-import useConstant from 'use-constant'
+import React, { useState } from 'react'
 import { useAsync } from 'react-async-hook'
 import ReactLoading from 'react-loading'
-
+import useConstant from 'use-constant'
 import { searchReviewedProducts } from '../models/product'
-import { TextField, Grid, makeStyles } from '@material-ui/core'
 import { CustomerProductCard } from './CustomerProductCard'
+
 
 const styles = {
     searchBar: {

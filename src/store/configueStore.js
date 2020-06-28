@@ -1,11 +1,9 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './reducers/rootReducer';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
+import rootReducer from './reducers/rootReducer';
 import rootSaga from './sagas/index';
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
-import autoMergeLevel1 from 'redux-persist/es/stateReconciler/autoMergeLevel1';
 
 const persistConfig = {
     key: 'root',
@@ -24,4 +22,4 @@ let persistor = persistStore(store)
 
 sagaMiddleware.run(rootSaga);
 
-export { store,persistor }
+export { store, persistor };

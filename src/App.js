@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { ProtectedRoute } from './components/ProtectedRoute'
-import Navigation from 'components/Navigation'
-import Footer from 'custom_components/Footer/Footer'
-import { LandingPage } from 'components/LandingPage'
+import { Grid } from '@material-ui/core';
+import { Callback } from 'components/Callback';
 import { Customer } from 'components/Customer';
 import { CustomerProductReviewerList } from 'components/CustomerProductReviewerList';
+import { LandingPage } from 'components/LandingPage';
+import Navigation from 'components/Navigation';
 import { Reviewer } from 'components/Reviewer';
-import { Grid } from '@material-ui/core';
 import { ReviewerCreateReview } from 'components/ReviewerCreateReview';
-import { Callback } from 'components/Callback';
+import Footer from 'custom_components/Footer/Footer';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {

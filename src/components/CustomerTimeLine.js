@@ -1,13 +1,10 @@
-import React from 'react'
 import { makeStyles } from "@material-ui/core/styles"
-import GridContainer from 'custom_components/Grid/GridContainer'
-import GridItem from 'custom_components/Grid/GridItem'
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component'
-import SearchIcon from '@material-ui/icons/Search'
+import DoneSharpIcon from '@material-ui/icons/DoneSharp'
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople'
-import HourglassFullIcon from '@material-ui/icons/HourglassFull';
-import QuestionAnswerSharpIcon from '@material-ui/icons/QuestionAnswerSharp'
-import DoneSharpIcon from '@material-ui/icons/DoneSharp';
+import HourglassFullIcon from '@material-ui/icons/HourglassFull'
+import SearchIcon from '@material-ui/icons/Search'
+import React from 'react'
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import '../css/style.min.css'
 
 const styles = {

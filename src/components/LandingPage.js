@@ -1,16 +1,16 @@
-import React from 'react'
+import { makeStyles } from "@material-ui/core/styles"
+import styles from "assets/jss/material-kit-react/views/landingPage.js"
+import clsx from 'clsx'
+import Button from 'custom_components/CustomButtons/Button'
 import GridContainer from 'custom_components/Grid/GridContainer'
 import GridItem from 'custom_components/Grid/GridItem'
-import Button from 'custom_components/CustomButtons/Button'
-
-import styles from "assets/jss/material-kit-react/views/landingPage.js"
 import Parallax from 'custom_components/Parallax/Parallax'
-import { makeStyles } from "@material-ui/core/styles"
-
-import clsx from 'clsx'
-
+import React from 'react'
 import { logIn } from '../Auth0'
 import { HowItWorks } from './HowItWorks'
+
+
+
 
 
 const customStyles = {

@@ -1,16 +1,15 @@
+// import "typeface-roboto";
+import 'fontsource-roboto';
+import { SnackbarProvider } from 'notistack';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-// import "typeface-roboto";
-import 'fontsource-roboto'
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react'
-import { persistor } from './store/configueStore'
-import { store }  from './store/configueStore'
-import { SnackbarProvider } from 'notistack'
+import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+import App from './App';
+import './index.css';
 import * as serviceWorker from './serviceWorker';
+import { persistor, store } from './store/configueStore';
 
 ReactDOM.render(
     <Provider store={ store }>
