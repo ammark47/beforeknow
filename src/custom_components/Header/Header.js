@@ -1,15 +1,15 @@
-import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames"
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
+import { AppBar, Button, Drawer, Hidden, IconButton, Toolbar } from '@material-ui/core';
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
-import { AppBar, Toolbar, IconButton, Button, Hidden, Drawer, Typography } from '@material-ui/core';
+// nodejs library that concatenates classes
+import classNames from "classnames";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 const customStyles = {

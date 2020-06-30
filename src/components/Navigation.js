@@ -12,7 +12,6 @@ import { LoggedOutHeaderLinks } from './LoggedOutHeaderLinks';
 export default () => {
   const dispatch = useDispatch()
   const loggedIn = useSelector(state => state.authReducer.loggedIn)
-  const user = useSelector(state => state.authReducer.user)
 
   const handleLogOut = async () => {
     signOut()
@@ -26,7 +25,7 @@ export default () => {
   return (
     <>
       <Header 
-        brand="Before Know"
+        brand="BeforeKnow"
         color="custom"
         fixed
         rightLinks={HeaderLinks}

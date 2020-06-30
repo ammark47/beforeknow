@@ -8,6 +8,7 @@ import Parallax from 'custom_components/Parallax/Parallax'
 import React from 'react'
 import { logIn } from '../Auth0'
 import { HowItWorks } from './HowItWorks'
+import { useHistory } from "react-router-dom"
 
 
 const customStyles = {
@@ -29,7 +30,11 @@ const useStyles = makeStyles(customStyles);
 
 export const LandingPage = () => {
     const classes = useStyles()
+    const history = useHistory()
 
+    const handleGetStarted = () => {
+        history.push('/customers')
+    }
 
     return (
         <>
@@ -37,7 +42,7 @@ export const LandingPage = () => {
                     <div className={classes.container}>
                         <GridContainer justify='flex-end'>
                             <GridItem xs={12} sm={12} md={6}>
-                                <h1 className={classes.title}><span style={{ fontStyle: 'italic' }}>Know</span> the product</h1>
+                                <h1 className={classes.title}>Know <span style={{ fontStyle: 'italic' }}>Before</span> You Buy</h1>
                                 <h4>
                                     BeforeKnow facilitates real-time chats with people who brought the product.
                                     Ask reviewers the questions you need answered about that product you just 
@@ -48,7 +53,7 @@ export const LandingPage = () => {
                                     className={classes.lpButton}
                                     color="danger"
                                     size="lg"
-                                    onClick={logIn}
+                                    onClick={handleGetStarted}
                                 >
                                     <i className="fas fa-play" />
                                     Get Started
