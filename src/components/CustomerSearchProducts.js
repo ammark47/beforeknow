@@ -11,11 +11,20 @@ import { CustomerProductCard } from './CustomerProductCard'
 const styles = {
     searchBar: {
         backgroundColor: 'white',
-        marginTop: '5em',
+        marginTop: '3em',
     },
     results: {
-        marginTop: '2em',
         flexGrow: 1
+    },
+    title: {
+        color: "#08415C",
+        margin: "1.75rem 0 0.875rem",
+        textDecoration: "none",
+        fontWeight: "700",
+        fontFamily: `"Roboto Slab", "Times New Roman", serif`,
+        marginBottom: "1rem",
+        marginTop: "30px",
+        textDecoration: "none",          
     }
 }
 
@@ -34,14 +43,26 @@ export const CustomerSearchProducts = () => {
         setSearchText(e.target.value)
     }
 
+    const placeholder = "What product would you like to ask questions about?"   
+
     return (
-        <Grid container>
+        <Grid container justify="center" align="center">
             <Grid container justify="center">
                 <Grid item xs={12} sm={12} md={6}>
-                    <TextField  className={classes.searchBar} fullWidth variant='outlined' onChange={handleChange} />
+                    <TextField  className={classes.searchBar} autoFocus fullWidth variant='outlined' onChange={handleChange} placeholder={placeholder}/>
                 </Grid>
             </Grid>
-            <Grid container justify="center" spacing={10} className={classes.results}>   
+            {!searchText && 
+                <Grid item xs={12}>
+                    <h2 className={classes.title}>Trending Products</h2>
+                </Grid>
+            }
+            {searchText && 
+                <Grid item xs={12}>
+                    <h2 className={classes.title}>Search Results</h2>
+                </Grid>
+            } 
+            <Grid container justify="center" spacing={10} className={classes.results}>
                     {loading && <ReactLoading type={"spinningBubbles"} color={"#08415C"} height={667} width={375} />}
                     {result && result.map(product => (
                         <CustomerProductCard key={product.id} {...product} />

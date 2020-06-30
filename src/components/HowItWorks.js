@@ -29,7 +29,7 @@ export const HowItWorks = () => {
                     <h2 className={classes.title}>How It Works</h2>
                 </GridItem>
             </GridContainer>
-            <Grid container style={{ flexGrow: 1 }} spacing={7}>
+            <Grid container style={{ flexGrow: 1 }} spacing={10}>
                 <Grid item xs={12} sm={12} md={6}>
                     <Grid container direction="column">
                         <GridItem xs={12}>

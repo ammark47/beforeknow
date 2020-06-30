@@ -79,7 +79,7 @@ const ReviewerTable = ({ reviewerList }) => {
 
     return (
         <MaterialTable
-            title="Reviewers"
+            title="Pick a reviewer and click the chat icon to send a request [Requests cost 1 token]"
             columns={columns}
             data={reviewerList}
             actions={actions}

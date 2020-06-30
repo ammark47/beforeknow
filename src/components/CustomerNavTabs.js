@@ -63,6 +63,9 @@ const useStyles = makeStyles((theme) => ({
                 "0 14px 26px -12px #F56476, 0 4px 23px 0px #F56476, 0 8px 10px -5px #F56476"
             },
         textDecoration: 'none'
+    },
+    navBar: {
+        marginTop: '2em'
     }
 }))
 
@@ -85,7 +88,7 @@ export const CustomerNavTabs = ({ path }) => {
 
     return (
         <Grid container className={classes.root} justify="center">
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={8} className={classes.navBar}>
                 <AppBar position="static">
                     <Tabs
                         selectionFollowsFocus

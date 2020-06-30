@@ -6,7 +6,6 @@ import GridContainer from 'custom_components/Grid/GridContainer'
 import GridItem from 'custom_components/Grid/GridItem'
 import Parallax from 'custom_components/Parallax/Parallax'
 import React from 'react'
-import { logIn } from '../Auth0'
 import { HowItWorks } from './HowItWorks'
 import { useHistory } from "react-router-dom"
 
