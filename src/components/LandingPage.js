@@ -10,9 +10,6 @@ import { logIn } from '../Auth0'
 import { HowItWorks } from './HowItWorks'
 
 
-
-
-
 const customStyles = {
     ...styles,
     lpButton: {

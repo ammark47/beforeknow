@@ -1,6 +1,6 @@
 import React from "react";
 // nodejs library that concatenates classes
-import classNames from "classnames";
+import classNames from "classnames"
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
@@ -9,13 +9,23 @@ import { makeStyles } from "@material-ui/core/styles";
 import Menu from "@material-ui/icons/Menu";
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
+import { AppBar, Toolbar, IconButton, Button, Hidden, Drawer, Typography } from '@material-ui/core';
+import { useHistory } from "react-router-dom";
 
-import { AppBar, Toolbar, IconButton, Button, Hidden, Drawer } from '@material-ui/core';
+const customStyles = {
+  ...styles,
+  navButtons: {
+    '&:focus': {
+      outline: 'none'
+    }
+  }
+}
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(customStyles);
 
 export default function Header(props) {
   const classes = useStyles();
+  const history = useHistory()
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -29,7 +39,10 @@ export default function Header(props) {
   });
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
-  };
+  }
+  const handleLogoClick = () => {
+    history.push('/')
+  }
   const headerColorChange = () => {
     const { color, changeColorOnScroll } = props;
     const windowsScrollTop = window.pageYOffset;
@@ -56,7 +69,7 @@ export default function Header(props) {
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
-  const brandComponent = <Button className={classes.title}>{brand}</Button>;
+  const brandComponent = <Button className={classNames(classes.title, classes.navButtons)} onClick={handleLogoClick}>{brand}</Button>
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
