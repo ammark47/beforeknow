@@ -16,9 +16,7 @@ Enabling conversations between prospective customers and reviewers
 
 
 ## TODO
-- Move to new repo for fresh start <-- Current
-- Create Profile Page
-- Archive conversations
+- Archive conversations after time limit <--- current task
 - Add error handling 
 - Host DB on cloud
 - Port server to AWS
