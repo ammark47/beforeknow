@@ -25,6 +25,9 @@ const styles = {
         marginBottom: "1rem",
         marginTop: "30px",
         textDecoration: "none",          
+    },
+    loading: {
+        marginTop: "3em"
     }
 }
 
@@ -63,7 +66,7 @@ export const CustomerSearchProducts = () => {
                 </Grid>
             } 
             <Grid container justify="center" spacing={10} className={classes.results}>
-                    {loading && <ReactLoading type={"spinningBubbles"} color={"#08415C"} height={667} width={375} />}
+                    {loading && <ReactLoading className={classes.loading} type={"spinningBubbles"} color={"#08415C"} height={667} width={375} />}
                     {result && result.map(product => (
                         <CustomerProductCard key={product.id} {...product} />
                     ))}
