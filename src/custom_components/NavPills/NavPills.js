@@ -7,14 +7,14 @@ import SwipeableViews from "react-swipeable-views";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
 import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
+
+import { Tabs, Tab } from '@material-ui/core';
 
 const useStyles = makeStyles(styles);
 

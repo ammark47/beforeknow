@@ -41,7 +41,7 @@ const headerLinksStyle = theme => ({
     position: "relative",
     padding: "0.9375rem",
     fontWeight: "400",
-    fontSize: "12px",
+    fontSize: "15px",
     textTransform: "uppercase",
     borderRadius: "3px",
     lineHeight: "20px",
@@ -50,7 +50,12 @@ const headerLinksStyle = theme => ({
     display: "inline-flex",
     "&:hover,&:focus": {
       color: "inherit",
-      background: "rgba(200, 200, 200, 0.2)"
+      background: "rgba(200, 200, 200, 0.2)",
+    },
+    "&:focus": {
+      outline: 'none',
+      background: 'none',
+      color: "#F56476"
     },
     [theme.breakpoints.down("sm")]: {
       width: "calc(100% - 30px)",

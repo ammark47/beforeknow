@@ -1,4 +1,3 @@
-import Grid from '@material-ui/core/Grid'
 import { makeStyles } from "@material-ui/core/styles"
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js"
 import GridContainer from 'custom_components/Grid/GridContainer'
@@ -6,6 +5,7 @@ import GridItem from 'custom_components/Grid/GridItem'
 import React from 'react'
 import { CustomerTimeLine } from './CustomerTimeLine'
 import { ReviewerTimeLine } from './ReviewerTimeLine'
+import { Grid } from '@material-ui/core';
 
 
 const customStyles = {
@@ -29,7 +29,7 @@ export const HowItWorks = () => {
                     <h2 className={classes.title}>How It Works</h2>
                 </GridItem>
             </GridContainer>
-            <Grid container style={{ flexGrow: 1 }} spacing={7}>
+            <Grid container style={{ flexGrow: 1 }} spacing={10}>
                 <Grid item xs={12} sm={12} md={6}>
                     <Grid container direction="column">
                         <GridItem xs={12}>

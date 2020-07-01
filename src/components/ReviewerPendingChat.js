@@ -1,9 +1,13 @@
-import { Button, Grid, makeStyles } from '@material-ui/core'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
-import DialogTitle from '@material-ui/core/DialogTitle'
+import {
+    Button,
+    Grid,
+    makeStyles,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+} from '@material-ui/core';
 import RefreshSharpIcon from '@material-ui/icons/RefreshSharp'
 import ThumbDownSharpIcon from '@material-ui/icons/ThumbDownSharp'
 import ThumbUpSharpIcon from '@material-ui/icons/ThumbUpSharp'
@@ -62,7 +66,7 @@ const ReviewerPendingChatTable = () => {
             horizontal: 'center',
         }
 
-        const acceptChatResponse = await acceptChat(user, row.customer_id,  row.review_id, row.name)
+        const acceptChatResponse = await acceptChat(user, row.customer_id,  row.review_id, row.name, row.product_name)
 
         if (!acceptChatResponse) {
             enqueueSnackbar('Network Error. Try again later', {

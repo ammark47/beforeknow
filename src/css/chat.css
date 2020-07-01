@@ -2,11 +2,14 @@
     .str-chat-channel.messaging, .str-chat-channel.commerce {
         width: 100%;
     }
-    .str-chat-channel-list.messaging, .str-chat-channel-list.team, .str-chat-channel-list.commerce {
-        top: unset;
+    .str-chat-channel-list.messaging.light, .str-chat-channel-list.team, .str-chat-channel-list.commerce {
+        z-index: 1108;
     }
     .str-chat-channel .str-chat__container {
         width: unset;
+    }
+    .str-chat-channel-list-burger {
+        background-color: #F56476 !important;
     }
 }
 
@@ -25,12 +28,17 @@
 
 .str-chat__channel-preview-messenger {
     background-color: #D7FDEC;
-    color: #08415C;
+    color: white;
     border-radius: 10px;
 }
 
 .str-chat__channel-preview-messenger:hover {
     cursor: pointer;
     background-color: #08415C;
-    color: #F56476;
+    color: #F56476 !important;
+}
+
+
+.str-chat__channel-preview-messenger--last-message {
+    color: #C0C0C0;
 }

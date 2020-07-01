@@ -1,9 +1,10 @@
 import { PURGE } from 'redux-persist';
-import { POSTGRES_PROFILE_LOADED, USER_PROFILE_LOADED } from '../actions/auth';
+import { POSTGRES_PROFILE_LOADED, USER_PROFILE_LOADED, ADD_REDIRECT_URL } from '../actions/auth';
 
 const initialState = {
   user: {},
-  loggedIn: false
+  loggedIn: false,
+  redirect: "/"
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -18,6 +19,11 @@ export const authReducer = (state = initialState, action) => {
         return {
           ...state,
           postgres_user: action.userInfoPostgres
+        }
+      case ADD_REDIRECT_URL:
+        return {
+          ...state,
+          redirect: action.redirectPath
         }
       case PURGE:
         return initialState

@@ -1,8 +1,5 @@
-import { Grid } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
+import { Grid, AppBar, Tab, Tabs } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CustomerChat } from './CustomerChat';
@@ -51,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         backgroundColor: "theme.palette.background.paper",
-        marginTop: '5em',
     },
     tab: {
         backgroundColor: "#D7FDEC",
@@ -66,9 +62,12 @@ const useStyles = makeStyles((theme) => ({
                 "0 14px 26px -12px #F56476, 0 4px 23px 0px #F56476, 0 8px 10px -5px #F56476"
             },
         textDecoration: 'none'
+    },
+    navBar: {
+        marginTop: '2em'
     }
 }))
-    
+
 
 export const CustomerNavTabs = ({ path }) => {
     const classes = useStyles()
@@ -88,7 +87,7 @@ export const CustomerNavTabs = ({ path }) => {
 
     return (
         <Grid container className={classes.root} justify="center">
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={8} className={classes.navBar}>
                 <AppBar position="static">
                     <Tabs
                         selectionFollowsFocus

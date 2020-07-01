@@ -26,7 +26,12 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
     let chatExistsAlready = false
     let chatCurrencyNotEnough = false
     let serverError = false
+    let isCustomerAndReviewerSame = false
     let success = false
+
+    if (customerId === reviewerId) {
+        isCustomerAndReviewerSame = true
+    }
 
     const responseChatCurrency = await fetch(`/api/users/${customerId}/chat-currency`)
     const { chat_currency } = await responseChatCurrency.json()
@@ -46,7 +51,7 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
         serverError = true
     }
 
-    if ( !chatCurrencyNotEnough && !chatExistsAlready ){
+    if ( !chatCurrencyNotEnough && !chatExistsAlready && !isCustomerAndReviewerSame){
         const initiateChatResponse = await fetch(`/api/chat`, {
             method: 'POST',
             body: JSON.stringify({
@@ -66,7 +71,8 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
     return {
         chatCurrencyNotEnough,
         chatExistsAlready,
-        serverError
+        serverError,
+        isCustomerAndReviewerSame
     }
 
         

@@ -9,6 +9,8 @@ import { ReviewerCreateReview } from 'components/ReviewerCreateReview';
 import Footer from 'custom_components/Footer/Footer';
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { ProtectedRoute } from 'components/ProtectedRoute';
+import { LogIn } from 'components/LogIn';
 
 class App extends Component {
   render() {
@@ -17,7 +19,10 @@ class App extends Component {
           <Grid item xs={12}  style={{ minHeight: '100%' }}>
             <Navigation />
             <Route exact path="/" component={LandingPage} />
-            <Route exact path="/customers/:path?" component={Customer} />
+            <Route exact path="/login" component={LogIn} />
+            <ProtectedRoute exact path="/customers/:path?">
+              <Customer />
+            </ProtectedRoute>
             <Route exact path="/customers/products/:productId" component={CustomerProductReviewerList} />
             <Route exact path="/reviewers/:path?" component={Reviewer} />
             <Route exact path="/reviewers/products/review" component={ReviewerCreateReview} />

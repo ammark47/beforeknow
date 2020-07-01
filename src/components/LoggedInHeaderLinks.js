@@ -1,7 +1,5 @@
-/*eslint-disable*/
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 // @material-ui/core components
+import { List, ListItem } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import { ExitToAppSharp } from "@material-ui/icons";
@@ -9,9 +7,6 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 import Button from "custom_components/CustomButtons/Button.js";
 import React from "react";
 import { useHistory } from 'react-router-dom';
-
-
-
 
 
 const useStyles = makeStyles(styles);
@@ -26,6 +21,12 @@ export const LoggedInHeaderLinks = (props) => {
 
     const handleReviewerLink = () => {
         history.push('/reviewers')
+    }
+
+    const handleLogOut = (e) => {
+        e.preventDefault()
+        history.replace('/')
+        props.logOut()
     }
 
     return (
@@ -52,7 +53,7 @@ export const LoggedInHeaderLinks = (props) => {
 
             <ListItem className={classes.listItem}>
                 <Button
-                    onClick={props.logOut}
+                    onClick={handleLogOut}
                     color="transparent"
                     className={classes.navLink}
                 >

@@ -6,19 +6,13 @@ import PropTypes from "prop-types";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Paper from "@material-ui/core/Paper";
-import Grow from "@material-ui/core/Grow";
-import Divider from "@material-ui/core/Divider";
-import Icon from "@material-ui/core/Icon";
-import Popper from "@material-ui/core/Popper";
 
 // core components
 import Button from "custom_components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/components/customDropdownStyle.js";
+
+import { MenuItem, MenuList, ClickAwayListener, Paper, Grow, Divider, Icon, Popper } from '@material-ui/core';
 
 const useStyles = makeStyles(styles);
 
