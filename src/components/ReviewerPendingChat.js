@@ -66,7 +66,7 @@ const ReviewerPendingChatTable = () => {
             horizontal: 'center',
         }
 
-        const acceptChatResponse = await acceptChat(user, row.customer_id,  row.review_id, row.name)
+        const acceptChatResponse = await acceptChat(user, row.customer_id,  row.review_id, row.name, row.product_name)
 
         if (!acceptChatResponse) {
             enqueueSnackbar('Network Error. Try again later', {

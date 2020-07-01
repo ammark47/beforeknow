@@ -1,7 +1,7 @@
-export const acceptChat = async (reviewer, customerId, reviewId, customerName) => {
+export const acceptChat = async (reviewer, customerId, reviewId, customerName, productName) => {
     const response = await fetch(`/api/chat/accept/${reviewer.id}/${customerId}/${reviewId}`, {
             method: 'PATCH',
-            body: JSON.stringify({...reviewer, customerName}),
+            body: JSON.stringify({...reviewer, customerName, productName}),
             headers: {
                 'Content-Type': 'application/json'
             },

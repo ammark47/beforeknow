@@ -3,7 +3,6 @@ import { logIn } from "Auth0";
 import "css/chat.css";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { StreamChat } from "stream-chat";
 import {
     Channel,
@@ -28,11 +27,9 @@ export const CustomerChat = () => {
     const [channel, setChannel] = useState({})
     const [loading, setLoading] = useState(false)
     const [chatClient, setChatClient] = useState(new StreamChat(process.env.REACT_APP_STREAM_CHAT_KEY))
-    const [channelId, setChannelId] = useState("")
     const user = useSelector(state => state.authReducer.postgres_user)
-    const { customerId, reviewId } = useParams()
 
-    const filters = { type: 'messaging', members: { $in: [user.chat_username] }, customer: user.chat_username };
+    const filters = { type: 'messaging',  "$or": [{ customer: user.chat_username }, {direct: user.chat_username}]  };
     const sort = { last_message_at: -1 };
 
     useEffect(() => {
@@ -65,6 +62,35 @@ export const CustomerChat = () => {
     }
 
 
+    const UsedChannelHeader = !channel ? ChannelHeader :
+        class CustomChannelHeader extends React.PureComponent {
+            render() {
+                return (
+                    <div className="str-chat__header-livestream">
+                        <div className="str-chat__header-livestream-left">
+                            <p className="str-chat__header-livestream-left--title">
+                            {channel.data.productName}
+                            </p>
+                        </div>
+                        <div className="str-chat__header-livestream-right">
+                            <div className="str-chat__header-livestream-right-button-wrapper">
+                            {/* <button
+                                className="logout"
+                                onClick={() =>
+                                    console.log('logout')
+                                }
+                            >
+                                Logout
+                            </button> */}
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+        }
+    
+
+
     return (
         <Grid item container xs={12} className={classes.root} >
             {loading && <div>Loading chat...</div>}
@@ -73,14 +99,14 @@ export const CustomerChat = () => {
                     <ChannelList
                         List={ChannelListMessenger}
                         Preview={ChannelPreviewMessenger}
-                        filters={filters}
+                        filters={filters}   
                         sort={sort}
                         setActiveChannel={setActiveChannel}
                     >
                     </ChannelList>
                     <Channel channel={channel}>
                         <Window>
-                            <ChannelHeader />
+                            <UsedChannelHeader />
                             <MessageList />
                             <MessageInput Input={MessageInputFlat} />
                         </Window>

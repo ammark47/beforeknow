@@ -19,12 +19,11 @@ const styles = {
     title: {
         color: "#08415C",
         margin: "1.75rem 0 0.875rem",
-        textDecoration: "none",
-        fontWeight: "700",
+        textDecoration: "underline",
+        fontWeight: "500",
         fontFamily: `"Roboto Slab", "Times New Roman", serif`,
         marginBottom: "1rem",
-        marginTop: "30px",
-        textDecoration: "none",          
+        marginTop: "30px",         
     },
     loading: {
         marginTop: "3em"
@@ -49,19 +48,19 @@ export const CustomerSearchProducts = () => {
     const placeholder = "What product would you like to ask questions about?"   
 
     return (
-        <Grid container justify="center" align="center">
+        <Grid container justify="flex-start" >
             <Grid container justify="center">
                 <Grid item xs={12} sm={12} md={6}>
                     <TextField  className={classes.searchBar} autoFocus fullWidth variant='outlined' onChange={handleChange} placeholder={placeholder}/>
                 </Grid>
             </Grid>
             {!searchText && 
-                <Grid item xs={12}>
+                <Grid item xs={12} align="left">
                     <h2 className={classes.title}>Trending Products</h2>
                 </Grid>
             }
             {searchText && 
-                <Grid item xs={12}>
+                <Grid item xs={12} align="left">
                     <h2 className={classes.title}>Search Results</h2>
                 </Grid>
             } 
