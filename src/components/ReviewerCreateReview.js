@@ -100,7 +100,7 @@ export const ReviewerCreateReview = () => {
         enqueueSnackbar(message, {
             anchorOrigin: anchorOrigin,
             variant: variant,
-            autoHideDuration: 4500,
+            autoHideDuration: 3500,
             action
         })
     }
@@ -154,6 +154,7 @@ export const ReviewerCreateReview = () => {
                                                         fullWidth
                                                         rows={4}
                                                         variant="outlined"
+                                                        inputProps={{maxLength : 400}}
                                                     />
                                                 </Grid>
                                                 <Grid item className="buttons">
@@ -163,7 +164,7 @@ export const ReviewerCreateReview = () => {
                                                         size="lg"
                                                         onClick={handleSubmit}
                                                     >
-                                                    Submit
+                                                    Submit Review
                                                     </Button>
                                                 </Grid>
                                             </Grid>

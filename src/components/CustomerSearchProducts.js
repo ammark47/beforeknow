@@ -10,7 +10,6 @@ import { CustomerProductCard } from './CustomerProductCard'
 
 const styles = {
     searchBar: {
-        backgroundColor: 'white',
         marginTop: '3em',
     },
     results: {
@@ -45,13 +44,21 @@ export const CustomerSearchProducts = () => {
         setSearchText(e.target.value)
     }
 
-    const placeholder = "What product would you like to ask questions about?"   
+    const placeholder = "What product would you like to ask questions about?..."  
+    const helperText = "We currently only support Walmart. Stay tuned for more stores soon!" 
 
     return (
         <Grid container justify="flex-start" >
             <Grid container justify="center">
                 <Grid item xs={12} sm={12} md={6}>
-                    <TextField  className={classes.searchBar} autoFocus fullWidth variant='outlined' onChange={handleChange} placeholder={placeholder}/>
+                <TextField  
+                        className={classes.searchBar} 
+                        autoFocus fullWidth 
+                        variant='outlined' 
+                        onChange={handleChange} 
+                        placeholder={placeholder}
+                        helperText={helperText}
+                    />
                 </Grid>
             </Grid>
             {!searchText && 

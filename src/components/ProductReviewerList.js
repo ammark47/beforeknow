@@ -29,7 +29,7 @@ const ReviewerTable = ({ reviewerList }) => {
         ]
 
     const handleChatRequest = async (event, review) => {
-        const { chatCurrencyNotEnough, chatExistsAlready, serverError } = await requestChat(customer.id, review.user_id, review.id)
+        const { chatCurrencyNotEnough, chatExistsAlready, serverError, isCustomerAndReviewerSame } = await requestChat(customer.id, review.user_id, review.id)
 
         let variant = 'success'
         let message = `You have spent 1 token and successfully requested a chat with ${review.name}! Periodically check \
@@ -52,6 +52,10 @@ const ReviewerTable = ({ reviewerList }) => {
         } else if ( serverError ) {
             variant = 'error'
             message = 'Network error. Please try again later'
+        } else if ( isCustomerAndReviewerSame ) {
+            variant = 'error'
+            message = 'Talking to yourself is frowned upon. Please choose someone else to chat with.'
+            action = null
         }
 
         const snackbarOptions = {
