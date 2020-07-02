@@ -93,8 +93,8 @@ export const CustomerChat = () => {
 
     return (
         <Grid item container xs={12} className={classes.root} >
-            {loading && <div>Loading chat...</div>}
-            {!loading &&
+            {!channel && <div>Loading chat...</div>}
+            {channel &&
                 (<Chat client={chatClient} theme="messaging light"  >
                     <ChannelList
                         List={ChannelListMessenger}

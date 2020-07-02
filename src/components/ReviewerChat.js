@@ -66,11 +66,38 @@ export const ReviewerChat = () => {
         setChannel(channel)
     }
 
+    const UsedChannelHeader = !channel ? ChannelHeader :
+        class CustomChannelHeader extends React.PureComponent {
+            render() {
+                return (
+                    <div className="str-chat__header-livestream">
+                        <div className="str-chat__header-livestream-left">
+                            <p className="str-chat__header-livestream-left--title">
+                            {channel.data.productName}
+                            </p>
+                        </div>
+                        <div className="str-chat__header-livestream-right">
+                            <div className="str-chat__header-livestream-right-button-wrapper">
+                            {/* <button
+                                className="logout"
+                                onClick={() =>
+                                    console.log('logout')
+                                }
+                            >
+                                Logout
+                            </button> */}
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+        }
+
 
     return (
         <Grid item container xs={12} className={classes.root} >
-            {loading && <div>Loading chat...</div>}
-            {!loading && 
+            {!channel && <div>Loading chat...</div>}
+            {channel && 
                 (<Chat client={chatClient} theme="messaging light"  >
                     <ChannelList
                         List={ChannelListMessenger}
@@ -82,7 +109,7 @@ export const ReviewerChat = () => {
                     </ChannelList>
                     <Channel channel={channel}>
                         <Window>
-                            <ChannelHeader />
+                            <UsedChannelHeader />
                             <MessageList/>
                             <MessageInput  Input={MessageInputFlat} />
                         </Window>
