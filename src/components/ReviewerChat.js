@@ -34,7 +34,7 @@ export const ReviewerChat = () => {
     const [channelId, setChannelId] = useState("")
     const user = useSelector(state => state.authReducer.postgres_user)
 
-    const filters = { type: 'messaging', members: { $in: [user.chat_username] }, reviewer: user.chat_username };
+    const filters = { type: 'messaging', "$or": [ { reviewer: user.chat_username }, { direct: user.chat_username }] }
     const sort = { last_message_at: -1 };
 
     useEffect(() => {
@@ -42,11 +42,11 @@ export const ReviewerChat = () => {
             setLoading(true)
 
             // Set the current chat user
-            const response = await chatClient.setUser(
+            await chatClient.setUser(
                 {
                     id: user.chat_username,
                     name: user.name,
-                    image: 'https://getstream.io/random_svg/?id=broken-cake-1&name=Broken+cake'
+                    image: `https://getstream.io/random_svg/?id=${user.chat_username}&name=${user.name}`
                 },
                 user.chat_token,
             )

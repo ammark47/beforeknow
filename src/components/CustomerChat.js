@@ -29,7 +29,7 @@ export const CustomerChat = () => {
     const [chatClient, setChatClient] = useState(new StreamChat(process.env.REACT_APP_STREAM_CHAT_KEY))
     const user = useSelector(state => state.authReducer.postgres_user)
 
-    const filters = { type: 'messaging',  "$or": [{ customer: user.chat_username }, {direct: user.chat_username}]  };
+    const filters = { type: 'messaging', "$or": [ { customer: user.chat_username }, { direct: user.chat_username }] }
     const sort = { last_message_at: -1 };
 
     useEffect(() => {
@@ -37,11 +37,11 @@ export const CustomerChat = () => {
             setLoading(true)
 
             // Set the current chat user
-            const response = await chatClient.setUser(
+            await chatClient.setUser(
                 {
                     id: user.chat_username,
                     name: user.name,
-                    image: 'https://getstream.io/random_svg/?id=broken-cake-1&name=Broken+cake'
+                    image: `https://getstream.io/random_svg/?id=${user.chat_username}&name=${user.name}`
                 },
                 user.chat_token,
             )
