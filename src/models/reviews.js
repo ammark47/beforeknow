@@ -34,9 +34,9 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
     }
 
     const responseChatCurrency = await fetch(`/api/users/${customerId}/chat-currency`)
-    const { chat_currency } = await responseChatCurrency.json()
+    const { chat_currency: chatCurrency } = await responseChatCurrency.json()
 
-    if ( chat_currency < 1 ){
+    if ( chatCurrency < 1 ){
         chatCurrencyNotEnough = true
     }
 
@@ -72,7 +72,8 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
         chatCurrencyNotEnough,
         chatExistsAlready,
         serverError,
-        isCustomerAndReviewerSame
+        isCustomerAndReviewerSame,
+        chatCurrency
     }
 
         
