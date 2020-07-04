@@ -29,10 +29,16 @@ const ReviewerTable = ({ reviewerList }) => {
         ]
 
     const handleChatRequest = async (event, review) => {
-        const { chatCurrencyNotEnough, chatExistsAlready, serverError, isCustomerAndReviewerSame } = await requestChat(customer.id, review.user_id, review.id)
+        const { 
+            chatCurrencyNotEnough, 
+            chatExistsAlready, 
+            serverError, 
+            isCustomerAndReviewerSame,
+            chatCurrency 
+        } = await requestChat(customer.id, review.user_id, review.id)
 
         let variant = 'success'
-        let message = `You have spent 1 token and successfully requested a chat with ${review.name}! Periodically check \
+        let message = `Chat request sent successfully! You now have ${chatCurrency} tokens remaining. Periodically check \
         your chat page to see if your request has been accepted`
         let action = key => (
             <>

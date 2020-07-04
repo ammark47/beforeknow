@@ -16,8 +16,8 @@ Enabling conversations between prospective customers and reviewers
 
 
 ## TODO
-- Archive conversations after time limit <--- current task
-- Add error handling 
-- Host DB on cloud
+- Host DB on cloud <-- current task
+- add analytics
 - Port server to AWS
+- port cron to serverless
 - Port client to AWS
