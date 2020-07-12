@@ -12,7 +12,6 @@ export function handleAuthenticationCallback(redirect) {
 } 
 
 export const addRedirectUrl = (redirectPath) => {
-  console.log(redirectPath)
   return {
     type: ADD_REDIRECT_URL,
     redirectPath

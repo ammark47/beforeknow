@@ -7,8 +7,6 @@ export const insertNewReview = async (review) => {
             }
         })
     
-    console.log(`client recieved ${reviewCreateResponse} in insertNewReview`)
-    console.log(reviewCreateResponse)
     return reviewCreateResponse.status
 }
 

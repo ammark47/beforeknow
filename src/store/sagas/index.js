@@ -35,7 +35,6 @@ export function* fetchReviewedProducts(action) {
     try {
         const reviewedProducts = yield call(searchReviewedProducts, action.searchKey)
         yield put({ type: SEARCH_REVIEWED_PRODUCT_SUCCESS, reviewedProducts })
-        console.log(reviewedProducts)
     } catch (err) {
         console.error(err)
     }
