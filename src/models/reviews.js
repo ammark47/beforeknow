@@ -1,5 +1,5 @@
 export const insertNewReview = async (review) => {
-    const reviewCreateResponse = await fetch('/api/reviews', {
+    const reviewCreateResponse = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/reviews`, {
             method: 'POST',
             body: JSON.stringify(review),
             headers: {
@@ -14,7 +14,7 @@ export const insertNewReview = async (review) => {
 
 export const getReviewersForProduct = async (productId) => {
     try {
-        return await fetch(`/api/reviews/${productId}`, {
+        return await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/reviews/${productId}`, {
             method: 'GET'
         })
     } catch (error) {
@@ -33,14 +33,14 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
         isCustomerAndReviewerSame = true
     }
 
-    const responseChatCurrency = await fetch(`/api/users/${customerId}/chat-currency`)
+    const responseChatCurrency = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/users/${customerId}/chat-currency`)
     const { chat_currency: chatCurrency } = await responseChatCurrency.json()
 
     if ( chatCurrency < 1 ){
         chatCurrencyNotEnough = true
     }
 
-    const chatExistsResponse =  await fetch(`/api/chat/${reviewerId}/${customerId}/${reviewId}/pending-active`)
+    const chatExistsResponse =  await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/chat/${reviewerId}/${customerId}/${reviewId}/pending-active`)
     const chatExists = await chatExistsResponse.json()
 
     if ( chatExists ){
@@ -52,7 +52,7 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
     }
 
     if ( !chatCurrencyNotEnough && !chatExistsAlready && !isCustomerAndReviewerSame){
-        const initiateChatResponse = await fetch(`/api/chat`, {
+        const initiateChatResponse = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/chat`, {
             method: 'POST',
             body: JSON.stringify({
                 customerId,
