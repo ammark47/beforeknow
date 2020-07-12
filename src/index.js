@@ -10,6 +10,19 @@ import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { persistor, store } from './store/configueStore';
+import ReactGA from 'react-ga'
+import { createBrowserHistory } from 'history'
+
+const trackingId = 'UA-172444942-1'
+ReactGA.initialize(trackingId)
+
+const history = createBrowserHistory()
+
+// Initialize google analytics page view tracking
+history.listen(location => {
+    ReactGA.set({ page: location.pathname }); // Update the user's current page
+    ReactGA.pageview(location.pathname); // Record a pageview for the given page
+})
 
 ReactDOM.render(
     <Provider store={ store }>
