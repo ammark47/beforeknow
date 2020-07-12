@@ -4,7 +4,7 @@ import { handleAuthentication } from '../../Auth0';
 import { searchAllWalmartProducts, searchReviewedProducts } from '../../models/product';
 import { HANDLE_AUTHENTICATION_CALLBACK, POSTGRES_PROFILE_LOADED, USER_PROFILE_LOADED } from '../actions/auth';
 import { SEARCH_PRODUCT_REQUEST, SEARCH_PRODUCT_SUCCESS, SEARCH_REVIEWED_PRODUCT_REQUEST, SEARCH_REVIEWED_PRODUCT_SUCCESS } from '../actions/products';
-
+import ReactGA from 'react-ga'
 
 
 
@@ -16,6 +16,10 @@ export function* parseHash() {
 
     const userInfoPostgres = yield call(checkAndInsertUser, user)
     yield put({ type: POSTGRES_PROFILE_LOADED, userInfoPostgres })
+
+    ReactGA.set({
+        userId: user.profile.sub
+    })
 }
 
 export function* fetchProductSearch(action) {

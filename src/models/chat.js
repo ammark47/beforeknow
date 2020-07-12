@@ -1,5 +1,5 @@
 export const acceptChat = async (reviewer, customerId, reviewId, customerName, productName) => {
-    const response = await fetch(`/api/chat/accept/${reviewer.id}/${customerId}/${reviewId}`, {
+    const response = await fetch(`/api/chat/accept/${reviewer.id}/${customerId}/${reviewId}/accept`, {
             method: 'PATCH',
             body: JSON.stringify({...reviewer, customerName, productName}),
             headers: {
@@ -11,7 +11,7 @@ export const acceptChat = async (reviewer, customerId, reviewId, customerName, p
 }
 
 export const declineChat = async (reviewerId, customerId, reviewId) => {
-    const response = await fetch(`/api/chat/decline/${reviewerId}/${customerId}/${reviewId}`, {
+    const response = await fetch(`/api/chat/decline/${reviewerId}/${customerId}/${reviewId}/decline`, {
             method: 'PATCH'
         })
     
