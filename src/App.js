@@ -23,9 +23,15 @@ class App extends Component {
             <ProtectedRoute exact path="/customers/:path?">
               <Customer />
             </ProtectedRoute>
-            <Route exact path="/customers/products/:productId" component={CustomerProductReviewerList} />
-            <Route exact path="/reviewers/:path?" component={Reviewer} />
-            <Route exact path="/reviewers/products/review" component={ReviewerCreateReview} />
+            <ProtectedRoute exact path="/reviewers/:path?">
+              <Reviewer />
+            </ProtectedRoute>
+            <ProtectedRoute exact path="/customers/products/:productId">
+              <CustomerProductReviewerList />
+            </ProtectedRoute>
+            <ProtectedRoute exact path="/reviewers/products/review">
+              <ReviewerCreateReview />
+            </ProtectedRoute>
             <Route exact path="/callback" component={Callback} /> 
           </Grid>
           <Grid item md={12}  style={{ marginTop: '3em' }}>

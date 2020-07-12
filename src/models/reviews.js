@@ -1,5 +1,5 @@
 export const insertNewReview = async (review) => {
-    const reviewCreateResponse = await fetch('/api/reviews/create', {
+    const reviewCreateResponse = await fetch('/api/reviews', {
             method: 'POST',
             body: JSON.stringify(review),
             headers: {
@@ -40,7 +40,7 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
         chatCurrencyNotEnough = true
     }
 
-    const chatExistsResponse =  await fetch(`/api/chat/${customerId}/${reviewerId}/${reviewId}`)
+    const chatExistsResponse =  await fetch(`/api/chat/${reviewerId}/${customerId}/${reviewId}/pending-active`)
     const chatExists = await chatExistsResponse.json()
 
     if ( chatExists ){
