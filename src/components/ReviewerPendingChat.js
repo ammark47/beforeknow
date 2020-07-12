@@ -137,7 +137,7 @@ const ReviewerPendingChatTable = () => {
                 tableRef={tableRef}
                 data={query => 
                     new Promise((resolve, reject) => {
-                        fetch(`/api/chat/${user.id}`)
+                        fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/chat/${user.id}`)
                         .then(response => response.json())
                         .then(result =>{
                             resolve({

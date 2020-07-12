@@ -6,7 +6,7 @@ import { ReviewerListItem } from './ReviewerListItem1'
 
 export const ReviewerList = ( ) => {
     const { productId } = useParams()
-    const { loading, data = [] } = useFetch("/api/reviews/" + productId, [])
+    const { loading, data = [] } = useFetch(`${process.env.REACT_APP_APIGATEWAY_URL}/reviews/` + productId, [])
 
     return (
         <>

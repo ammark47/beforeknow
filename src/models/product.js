@@ -1,8 +1,8 @@
 export const searchAllWalmartProducts = async ( searchKey, abortSignal ) => {
     try {
-        const response = await fetch(`/api/walmart/products/${searchKey}`, { signal: abortSignal } )
+        const response = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/walmart/products/${searchKey}`, { signal: abortSignal } )
         const listOfProductsJson = await response.json()
-        console.log(listOfProductsJson)
+
         return listOfProductsJson["items"]
     } catch (error) {
         console.error(error)
@@ -11,7 +11,7 @@ export const searchAllWalmartProducts = async ( searchKey, abortSignal ) => {
 
 export const searchReviewedProducts = async ( searchKey ) => {
     try {
-        const response = await fetch('/api/products?search=' + searchKey)
+        const response = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/products?search=` + searchKey)
         const listOfProductsJson = await response.json()
 
         return listOfProductsJson
