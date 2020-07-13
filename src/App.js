@@ -32,7 +32,7 @@ class App extends Component {
             <ProtectedRoute exact path="/reviewers/products/review">
               <ReviewerCreateReview />
             </ProtectedRoute>
-            <Route exact path="/callback" component={Callback} /> 
+            <Route path="/callback" component={Callback} /> 
           </Grid>
           <Grid item md={12}  style={{ marginTop: '3em' }}>
             <Footer whiteFont/>
