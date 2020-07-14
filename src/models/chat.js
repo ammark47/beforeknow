@@ -1,5 +1,5 @@
 export const acceptChat = async (reviewer, customerId, reviewId, customerName, productName) => {
-    const response = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/chat/accept/${reviewer.id}/${customerId}/${reviewId}/accept`, {
+    const response = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/chat/${reviewer.id}/${customerId}/${reviewId}/accept`, {
             method: 'PATCH',
             body: JSON.stringify({...reviewer, customerName, productName}),
             headers: {
