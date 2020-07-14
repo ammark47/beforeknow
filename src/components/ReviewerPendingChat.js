@@ -37,7 +37,6 @@ const ReviewerPendingChatTable = () => {
     const [declineChatInfo, setDeclineChatInfo] = useState({})
     const { enqueueSnackbar, closeSnackbar } = useSnackbar()
     const user = useSelector(state => state.authReducer.postgres_user) 
-    const checkPendingChatsForUser = query => checkPendingChats(user.id)
     const columns = [
         { title: 'Customer Name', field: 'name' },
         { title: 'Product Name', field: 'product_name'},
