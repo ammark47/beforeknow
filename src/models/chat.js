@@ -11,7 +11,7 @@ export const acceptChat = async (reviewer, customerId, reviewId, customerName, p
 }
 
 export const declineChat = async (reviewerId, customerId, reviewId) => {
-    const response = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/chat/${reviewerId}/${customerId}/${reviewId}/deline`, {
+    const response = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/chat/${reviewerId}/${customerId}/${reviewId}/decline`, {
             method: 'PATCH'
         })
     
