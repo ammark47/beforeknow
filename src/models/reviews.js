@@ -63,6 +63,11 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
         }) 
 
         serverError = !initiateChatResponse.ok
+        
+        // show client that chat currency has been decremented
+        if (initiateChatResponse.ok) {
+            chatCurrency = chatCurrency - 1
+        }
     }
 
 

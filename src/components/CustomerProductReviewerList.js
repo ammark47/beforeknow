@@ -11,7 +11,8 @@ const useStyles = makeStyles(() => ({
     },
     productContainer: {
         marginTop: '10em',
-        boxShadow:"0 0 0 0 #08415C, 0 0 0 0 #08415C, 0 1px 5px 0 #08415C"
+        boxShadow:"0 0 0 0 #08415C, 0 0 0 0 #08415C, 0 1px 5px 0 #08415C",
+        flexGrow: 1
     },
     description: {
         color: '#08415C',

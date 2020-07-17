@@ -4,7 +4,7 @@ import Rating from '@material-ui/lab/Rating'
 import MaterialTable from 'material-table'
 import { requestChat } from 'models/reviews'
 import { useSnackbar } from 'notistack'
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
@@ -20,6 +20,7 @@ const useStyles = makeStyles(() => ({
 
 const ReviewerTable = ({ reviewerList }) => {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar()
+    const [handlingChatRequest, setHandlingChatRequest] = useState(false)
     const history = useHistory()
     const customer = useSelector(state => state.authReducer.postgres_user)
     const columns = [
@@ -29,6 +30,13 @@ const ReviewerTable = ({ reviewerList }) => {
         ]
 
     const handleChatRequest = async (event, review) => {
+        // server is handling a previous request
+        // avoids duplicate chat requests
+        if (handlingChatRequest) {
+            return
+        }
+        setHandlingChatRequest(true)
+
         const { 
             chatCurrencyNotEnough, 
             chatExistsAlready, 
@@ -36,6 +44,8 @@ const ReviewerTable = ({ reviewerList }) => {
             isCustomerAndReviewerSame,
             chatCurrency 
         } = await requestChat(customer.id, review.user_id, review.id)
+
+        setHandlingChatRequest(false)
 
         let variant = 'success'
         let message = `Chat request sent successfully! You now have ${chatCurrency} tokens remaining. Periodically check \
@@ -112,7 +122,6 @@ const ReviewerTable = ({ reviewerList }) => {
 
 export const ProductReviewerList = ({ reviewerList }) => {
     const classes = useStyles()
-
 
     return (
         <>
