@@ -32,7 +32,7 @@ export const requestChat = async (customerId, reviewerId, reviewId) => {
     }
 
     const responseChatCurrency = await fetch(`${process.env.REACT_APP_APIGATEWAY_URL}/users/${customerId}/chat-currency`)
-    const { chat_currency: chatCurrency } = await responseChatCurrency.json()
+    let { chat_currency: chatCurrency } = await responseChatCurrency.json()
 
     if ( chatCurrency < 1 ){
         chatCurrencyNotEnough = true
